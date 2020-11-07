@@ -15,6 +15,10 @@ const User = new Schema(
     password_digest: { 
       type: String, 
       required: true 
+    },
+    art_board: {
+      type: Schema.Types.ObjectId,
+      ref: 'artboards'
     }
   },
   { timestamps: true }

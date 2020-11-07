@@ -2,8 +2,8 @@ const { Schema, model } = require('mongoose')
 
 const ArtBoard = new Schema(
   {
-    user_id: {
-      type: Schema.Types.ObjectId,
+    user_name: {
+      type: Schema.Types.String,
       ref: 'users'
     },
     board_name: {
@@ -11,8 +11,8 @@ const ArtBoard = new Schema(
       required: true
     },
     image_url: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
     likes: {
       type: Number,

@@ -2,12 +2,8 @@ const ArtBoard = require('../models/ArtBoard')
 
 const GetBoards = async (request, response) => {
   try {
-    const { page, limit } = request.query
-    const offset = page === 1 ? 0 : Mathfloor(parseInt(page) * parseInt(limit))
     const boards = await ArtBoard.find()
-      .limit(parseInt(limit))
-      .skip(offset)
-    response.send({ getting: boards.length, boards })
+    response.send(boards)
   } catch (error) {
     throw error
   }
@@ -15,7 +11,10 @@ const GetBoards = async (request, response) => {
 
 const CreateBoard = async (request, response) => {
   try {
-    const newBoards = new ArtBoard({ ...request.body, user_name: request.params.user_name })
+    const newBoards = new ArtBoard({
+      ...request.body, 
+      user_name: request.params.user_name 
+    })
     newBoards.save()
     response.send(newBoards)
   } catch (error) {

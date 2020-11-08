@@ -8,7 +8,7 @@ const UserSignUp = async (request, response) => {
         name: body.name,
         user_name: body.user_name,
         email: body.email,
-        password_digest: body.password
+        password_digest: body.password_digest
     })
     user.save()
     response.send(user)
@@ -33,10 +33,12 @@ const UserSignIn = async (request, response) => {
   }
 }
 
-const GetArtBoard = async (request, response) => {
+const GetPortfolio = async (request, response) => {
   try {
-    const user = await User.findOne({ user_name: request.params.user_name })
-    const board = await Artboard.find({ user_name: request.params.user_name })
+    const user = await User.findById(request.params.user_name).select('_id name')
+    const board = await Artboard.find({ 
+      user_name: request.params.user_name 
+    })
     response.send({ user, board })
   } catch (error) {
     throw error
@@ -47,5 +49,5 @@ const GetArtBoard = async (request, response) => {
 module.exports = {
     UserSignUp,
     UserSignIn,
-    GetArtBoard
+    GetPortfolio
 }

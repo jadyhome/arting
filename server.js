@@ -1,3 +1,4 @@
+const AppRouter = require('./routes/AppRouter')
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
@@ -14,11 +15,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 // MIDDLEWARE
 
-app.use('/', (request, response) => {
-  response.send('This is Home Route.')
+app.get('/', (request, response) => {
+  response.send({ Message: 'This is Home Route.' })
 })
+app.use('/arting', AppRouter)
 
-app.list(PORT, async () => {
+app.listen(PORT, async () => {
   try {
     await connection
     console.log('Database Connected')

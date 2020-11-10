@@ -62,10 +62,12 @@ Initial Mockup/Wireframes
 ***
 
 ### Future Updates
-- [ ] TESTING
-- [ ] 
-- [ ] 
-- [ ] 
+<!--
+- [ ] future updates here
+- [ ] future updates here
+- [ ] future updates here
+- [ ] future updates here 
+-->
 ***
 
 ### Credits

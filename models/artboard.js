@@ -6,7 +6,7 @@ const ArtBoard = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'users'
     },
-    board_name: {
+    title: {
       type: String,
       required: true
     },

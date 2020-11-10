@@ -31,7 +31,7 @@ Arting is a website platform for users to showcase their portfolio and work. Use
 
 Get started by signing up and creating a profile. You can then begin creating artboards in your profile and showcase your works!
 
-Here is [My Trello Board](https://trello.com/b/snLYqikj.com) - where I kept track of the process of creating this website.
+Here is [My Trello Board](https://trello.com/b/snLYqikj) - where I kept track of the process of creating this website.
 ***
 
 ### User Stories

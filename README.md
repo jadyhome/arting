@@ -3,7 +3,7 @@
 ### By: Jady Hom
 ***
 
-### Overview
+### Description
 **arting**
 
 [ ar-ting ]
@@ -62,7 +62,7 @@ Initial Mockup/Wireframes
 ***
 
 ### Future Updates
-- [ ] 
+- [ ] TESTING
 - [ ] 
 - [ ] 
 - [ ] 

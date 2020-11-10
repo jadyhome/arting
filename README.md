@@ -54,7 +54,7 @@ Here is [My Trello Board](https://trello.com/b/snLYqikj.com) - where I kept trac
 
 ### Wireframe
 Initial Mockup/Wireframes
-
+![Initial Wireframe](assets/wireframe_arting.png)
 ***
 
 ### Screenshots

@@ -4,8 +4,8 @@ const UserRouter = require('./UserRouter')
 const ArtBoardRouter = require('./ArtBoardRouter')
 const CommentRouter = require('./CommentRouter')
 
-Router.use('/user', UserRouter)
-Router.use('/artboard', ArtBoardRouter)
-Router.use('/comment', CommentRouter)
+Router.use('/users', UserRouter)
+Router.use('/artboards', ArtBoardRouter)
+Router.use('/comments', CommentRouter)
 
 module.exports = Router

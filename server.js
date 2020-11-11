@@ -3,7 +3,7 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const connection = require('./db/index')
+const connection = require('./db/connection')
 
 const PORT = process.env.PORT || 3001
 const app = express()
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (request, response) => {
   response.send({ Message: 'This is Home Route.' })
 })
-app.use('/arting', AppRouter)
+app.use('/api', AppRouter)
 
 app.listen(PORT, async () => {
   try {

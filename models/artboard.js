@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const ArtBoard = new Schema(
   {
-    user_name: {
+    user_id: {
       type: Schema.Types.ObjectId,
       ref: 'users'
     },

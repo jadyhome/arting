@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose')
 
 const Comment = new Schema(
   {
-    user_name: {
+    user_id: {
       type: Schema.Types.ObjectId,
       ref: 'users'
     },

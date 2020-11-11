@@ -10,7 +10,7 @@ const NewComment = async (request, response) => {
     newComment.save()
     await ArtBoard.update(
       { _id: request.params.board_id },
-      { $push: { comments: comment } }
+      { $push: { comments: newComment } }
     )
     response.send(newComment)
   } catch (error) {

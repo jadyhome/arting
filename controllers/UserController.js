@@ -19,11 +19,11 @@ const UserSignUp = async (request, response) => {
 
 const UserSignIn = async (request, response) => {
   try {
-    const user = await User.findOne({ user_name: request.body.user_name })
-    if (user && user.password_digest === request.body.password_digest) {
+    const user = await User.findOne({ email: request.body.email })
+    if (user && user.password_digest === request.body.password) {
       const payload = {
-        name: user.name,
-        user_name: user.user_name
+        _id: user._id,
+        name: user.name
       }
       response.send(payload)
     }
@@ -33,11 +33,11 @@ const UserSignIn = async (request, response) => {
   }
 }
 
-const GetPortfolio = async (request, response) => {
+const GetProfile = async (request, response) => {
   try {
-    const user = await User.findById(request.params.user_name).select('_id name')
+    const user = await User.findById(request.params.user_id).select('_id name')
     const board = await Artboard.find({ 
-      user_name: request.params.user_name 
+      user_id: request.params.user_id 
     })
     response.send({ user, board })
   } catch (error) {
@@ -45,9 +45,8 @@ const GetPortfolio = async (request, response) => {
   }
 }
 
-
 module.exports = {
     UserSignUp,
     UserSignIn,
-    GetPortfolio
+    GetProfile
 }

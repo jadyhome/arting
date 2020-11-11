@@ -1,4 +1,5 @@
 const ArtBoard = require('../models/ArtBoard')
+const Comment = require('../models/Comment')
 
 const GetBoards = async (request, response) => {
   try {
@@ -11,12 +12,12 @@ const GetBoards = async (request, response) => {
 
 const CreateBoard = async (request, response) => {
   try {
-    const newBoards = new ArtBoard({
+    const newBoard = new ArtBoard({
       ...request.body, 
-      user_name: request.params.user_name 
+      user_id: request.params.user_id 
     })
-    newBoards.save()
-    response.send(newBoards)
+    newBoard.save()
+    response.send(newBoard)
   } catch (error) {
     throw error
   }
@@ -24,8 +25,8 @@ const CreateBoard = async (request, response) => {
 
 const UpdateBoard = async (request, response) => {
   try {
-    const updateBoard = await ArtBoard.findOneAndUpdate(
-        request.params.board_name,
+    const updateBoard = await ArtBoard.findByIdAndUpdate(
+        request.params.board_id,
         { ...request.body },
         { new: true, useFindAndModify: false }
     )
@@ -37,7 +38,8 @@ const UpdateBoard = async (request, response) => {
 
 const DeleteBoard = async (request, response) => {
   try {
-    await ArtBoard.findOneAndDelete(request.params.board_name)
+    await Comment.deleteMany({ _id: { $in: board.comments } })
+    await ArtBoard.findByIdAndDelete(request.params.board_id)
     response.send({ Confirmation: 'Board has been deleted.' })
   } catch (error) {
     throw error

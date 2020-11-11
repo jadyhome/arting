@@ -5,7 +5,7 @@ const NewComment = async (request, response) => {
   try {
     const newComment = await Comment({
         ...request.body,
-        user_name: request.params.user_name
+        user_id: request.params.user_id
     })
     newComment.save()
     await ArtBoard.update(

@@ -1,9 +1,9 @@
 import React from 'react'
 import Nav from '../components/Nav'
 
-const HomePage = ({ children }) => {
+const MainPage = ({ children }) => {
   return (
-    <div className="homepage">
+    <div className="mainpage">
       <section className="arting-logo">
           <h1>arting</h1>
       </section>
@@ -16,4 +16,4 @@ const HomePage = ({ children }) => {
   )
 }
 
-export default HomePage
+export default MainPage

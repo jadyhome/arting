@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import HomePage from '../pages/HomePage'
-import Home from '../pages/Home'
+import MainPage from '../pages/MainPage'
+import SignInLayout from '../pages/SignInLayout'
+import SignUpLayout from '../pages/SignUpLayout'
 import SignUp from '../pages/SignUp'
 import SignIn from '../pages/SignIn'
 import Portfolio from '../pages/Portfolio'
@@ -27,30 +28,28 @@ class Router extends Component {
             <Switch>
               <Route exact path="/"
                 component={() => (
-                  <HomePage>
-                    <Home />
-                  </HomePage>
+                  <MainPage />
                 )}
               />
               <Route path="/signup"
                 component={(props) => (
-                <HomePage>
+                <SignUpLayout>
                   <SignUp {...props} />
-                </HomePage>
+                </SignUpLayout>
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
-                  <HomePage>
+                  <SignInLayout>
                     <SignIn {...props} />
-                  </HomePage>
+                  </SignInLayout>
                 )}
               />
               <Route path="/portfolios"
                 component={(props) => (
-                  <HomePage>
+                  <Home>
                     <Portfolio {...props} />
-                  </HomePage>
+                  </Home>
                 )}
               />
             </Switch>

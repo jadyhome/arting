@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import TextInput from '../components/TextInput'
+import TextInput from './TextInput'
 
 class SignIn extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
+      user_name: '',
       password: '',
       formError: false
     }
@@ -23,15 +23,15 @@ class SignIn extends Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { user_name, password } = this.state
     return (
       <div className="signin">
         <form className="form" onSubmit={this.handleSubmit}>
           <TextInput 
-            type="email"
-            name="email"
-            placeholder="email"
-            value={email}
+            type="username"
+            name="username"
+            placeholder="username"
+            value={user_name}
             onChange={this.handleChange}
           />
           <TextInput 

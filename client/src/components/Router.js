@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import MainPage from '../pages/MainPage'
-import SignInLayout from '../pages/SignInLayout'
-import SignUpLayout from '../pages/SignUpLayout'
-import SignUp from '../pages/SignUp'
-import SignIn from '../pages/SignIn'
-import Portfolio from '../pages/Portfolio'
+import SignInPage from '../pages/SignInPage'
+import SignUpPage from '../pages/SignUpPage'
+import PortfolioPage from '../pages/PortfolioPage'
+import SignUp from '../components/SignUp'
+import SignIn from '../components/SignIn'
+import Portfolio from './Portfolio'
 
 class Router extends Component {
   constructor() {
@@ -33,23 +34,23 @@ class Router extends Component {
               />
               <Route path="/signup"
                 component={(props) => (
-                <SignUpLayout>
+                <SignUpPage>
                   <SignUp {...props} />
-                </SignUpLayout>
+                </SignUpPage>
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
-                  <SignInLayout>
+                  <SignInPage>
                     <SignIn {...props} />
-                  </SignInLayout>
+                  </SignInPage>
                 )}
               />
               <Route path="/portfolios"
                 component={(props) => (
-                  <Home>
+                  <PortfolioPage>
                     <Portfolio {...props} />
-                  </Home>
+                  </PortfolioPage>
                 )}
               />
             </Switch>

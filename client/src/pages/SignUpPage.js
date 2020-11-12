@@ -4,17 +4,17 @@ import Nav from '../components/Nav'
 const SignUpPage = () => {
   return (
     <div className="signup-page">
+      <section className="navbar">
+          <Nav />
+      </section>
+      
       <div className="signup-message">
         <h1>arting</h1>
         <h2>[ ar-ting ]</h2>
         <h2>verb</h2>
-        <p>1. the action of doing art</p>
-        <p><em>i am arting right now</em></p>
+        <h3>1. the action of doing art</h3>
+        <h3><em>i am arting right now.</em></h3>
       </div>
-
-      <section className="navbar">
-          <Nav />
-      </section>
     </div>
   )
 }

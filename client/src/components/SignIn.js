@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from './TextInput'
+import '../styles/SignInUp.css'
 
 class SignIn extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class SignIn extends Component {
     return (
       <div className="signin">
         <form className="form" onSubmit={this.handleSubmit}>
+          <h1 className="signingin">hello again!</h1>
           <TextInput 
             type="username"
             name="username"

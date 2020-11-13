@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
+import '../styles/SignInUp.css'
 
 class SignUp extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class SignUp extends Component {
     return (
       <div className="signup">
         <form className="form" onSubmit={this.handleSubmit}>
+          <h1 className="createacc">create an account</h1>
           <TextInput 
             type="text"
             name="name"
@@ -41,17 +43,17 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
           <TextInput 
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <TextInput 
             type="text"
             name="username"
             placeholder="username"
             value={username}
+            onChange={this.handleChange}
+          />
+          <TextInput 
+            type="password"
+            name="password"
+            placeholder="password"
+            value={password}
             onChange={this.handleChange}
           />
           <button>Sign Up</button>

@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom'
 export default () => {
   return (
     <nav>
+      <NavLink activeClassName="nav-active" to="/">
+        arting
+      </NavLink>
       <NavLink activeClassName="nav-active" to="/portfolios">
         portfolios
       </NavLink>

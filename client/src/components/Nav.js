@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default () => {
   return (
     <nav>
-      <NavLink activeClassName="nav-active" to="/">
+      <NavLink activeClassName="title nav-active" to="/">
         arting
       </NavLink>
       <NavLink activeClassName="nav-active" to="/portfolios">

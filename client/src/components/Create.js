@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __CreateBoard } from '../services/BoardService'
 
-class CreateBoard extends Component {
+class Create extends Component {
   constructor() {
     super()
     this.state = {
@@ -49,4 +49,4 @@ class CreateBoard extends Component {
   }
 }
 
-export default CreateBoard
+export default Create

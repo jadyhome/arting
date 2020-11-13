@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
+import { __UserSignUp } from '../services/UserService'
 import '../styles/SignInUp.css'
 
 class SignUp extends Component {
@@ -20,6 +21,12 @@ class SignUp extends Component {
 
   handleSubmit = async (error) => {
     error.preventDefault()
+    try {
+      await __UserSignUp(this.state)
+      this.props.history.push('/signin')
+    } catch (error) {
+      throw error
+    }
   }
 
   render() {

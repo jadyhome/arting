@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import MainPage from '../pages/MainPage'
-import SignInPage from '../pages/SignInPage'
-import SignUpPage from '../pages/SignUpPage'
-import PortfolioPage from '../pages/PortfolioPage'
-import ProfilePage from '../pages/ProfilePage'
-import SignUp from '../components/SignUp'
-import SignIn from '../components/SignIn'
+import SignUp from '../pages/SignUp'
+import SignIn from '../pages/SignIn'
+import Profile from '../pages/Profile'
 import Portfolio from '../components/Portfolio'
-import Profile from '../components/Profile'
 import ProtectedRoute from './ProtectedRoute'
 import SignedInLayout from './SignedInLayout'
 import { __CheckSession } from '../services/UserService'
@@ -72,9 +68,9 @@ class Router extends Component {
               />
               <Route path="/signin"
                 component={(props) => (
-                    <SignIn 
-                    toggleAuthenticated={this.toggleAuthenticated}
-                    {...props} />
+                  <SignIn 
+                  toggleAuthenticated={this.toggleAuthenticated}
+                  {...props} />
                 )}
               />
               <Route path="/portfolio"

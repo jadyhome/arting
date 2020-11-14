@@ -4,7 +4,7 @@ body {
 
 .mainpage {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 4fr;
     grid-template-rows: 70px 2fr;
     height: 100vh;
 }
@@ -31,4 +31,34 @@ nav a {
     color: #000;
     outline: none;
     text-decoration: none;
+}
+
+.main-content {
+    background: linear-gradient(180deg, #f0eeb1, #f69898);
+    background-size: 200% 200%;
+    -webkit-animation: gradient-animation 30s ease infinite;
+    -moz-animation: gradient-animation 30s ease infinite;
+    -o-animation: gradient-animation 30s ease infinite;
+    animation: gradient-animation 30s ease infinite;
+}
+
+@-webkit-keyframes gradient-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes gradient-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradient-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }

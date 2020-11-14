@@ -9,7 +9,6 @@ class SignUp extends Component {
     this.state = {
       name: '',
       email: '',
-      username: '',
       password: ''
     }
   }
@@ -23,6 +22,7 @@ class SignUp extends Component {
     e.preventDefault()
     try {
       await __UserSignUp(this.state)
+      console.log(this.state)
       this.props.history.push('/signin')
     } catch (error) {
       console.log(error)
@@ -30,7 +30,7 @@ class SignUp extends Component {
   }
 
   render() {
-    const { name, email, username, password } = this.state
+    const { name, email, password } = this.state
     return (
       <div className="signup">
         <form className="form" onSubmit={this.handleSubmit}>

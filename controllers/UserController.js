@@ -34,7 +34,7 @@ const UserSignUp = async (request, response) => {
 
 const UserSignIn = async (request, response, next) => {
   try {
-    const user = await User.findOne({ user_name: request.body.user_name })
+    const user = await User.findOne({ email: request.body.email })
     if (user && (await checkPassword(request.body.password, user.password_digest))) {
       const payload = {
         _id: user._id,

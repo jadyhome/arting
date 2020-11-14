@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import MainPage from '../pages/MainPage'
 import SignInPage from '../pages/SignInPage'
 import SignUpPage from '../pages/SignUpPage'
@@ -9,17 +9,45 @@ import SignUp from '../components/SignUp'
 import SignIn from '../components/SignIn'
 import Portfolio from '../components/Portfolio'
 import Profile from '../components/Profile'
+import ProtectedRoute from './ProtectedRoute'
+import SignedInLayout from './SignedInLayout'
+import { __CheckSession } from '../services/UserService'
 
 class Router extends Component {
   constructor() {
     super()
     this.state = {
+      authenticated: false,
+      currentUser: null,
       pageLoading: true
     }
   }
 
   componentDidMount() {
+    this.verifyTokenValid()
     this.setState({ pageLoading: false })
+  }
+
+  verifyTokenValid = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      try {
+        const session = await __CheckSession()
+        this.setState(
+          { currentUser: session.user,
+            authenticated: true
+          },
+          () => this.props.history.push('/profile')
+        )
+      } catch (error) {
+        this.setState({ currentUser: null, authenticated: false })
+        localStorage.clear()
+      }
+    }
+  }
+
+  toggleAuthenticated = (value, user, done) => {
+    this.setState({ authenticated: value, currentUser: user}, () => done())
   }
 
   render() {
@@ -37,14 +65,16 @@ class Router extends Component {
               <Route path="/signup"
                 component={(props) => (
                 <SignUpPage>
-                  <SignUp {...props} />
+                  {/* <SignUp {...props} /> */}
                 </SignUpPage>
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
                   <SignInPage>
-                    <SignIn {...props} />
+                    <SignIn 
+                    toggleAuthenticated={this.toggleAuthenticated}
+                    {...props} />
                   </SignInPage>
                 )}
               />
@@ -55,11 +85,17 @@ class Router extends Component {
                   </PortfolioPage>
                 )}
               />
-              <Route path="/profile"
+              <ProtectedRoute 
+                authenticated={this.state.authenticated}
+                path="/profile"
                 component={(props) => (
-                  <ProfilePage>
-                    <Profile {...props} />
-                  </ProfilePage>
+                  <SignedInLayout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                  >
+                    <Profile {...props} 
+                    currentUser={this.state.currentUser} />
+                  </SignedInLayout>
                 )}
               />
             </Switch>
@@ -69,4 +105,4 @@ class Router extends Component {
   }
 }
 
-export default Router
+export default withRouter(Router)

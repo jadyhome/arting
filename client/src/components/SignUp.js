@@ -19,13 +19,13 @@ class SignUp extends Component {
     console.log(this.state)
   }
 
-  handleSubmit = async (error) => {
-    error.preventDefault()
+  handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       await __UserSignUp(this.state)
       this.props.history.push('/signin')
     } catch (error) {
-      throw error
+      console.log(error)
     }
   }
 

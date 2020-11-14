@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 import SignUp from '../components/SignUp'
 import '../styles/SignInUp.css'
 
-const SignUpPage = () => {
+const SignUpPage = (props) => {
   return (
     <div className="signup-page">
       <section className="navbar">
@@ -21,7 +21,7 @@ const SignUpPage = () => {
       </div>
 
       <div className="signup-form">
-        <SignUp />
+        <SignUp {...props} />
       </div>
     </div>
   )

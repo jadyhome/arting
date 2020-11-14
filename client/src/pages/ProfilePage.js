@@ -33,7 +33,7 @@ class ProfilePage extends Component {
   return (
     <div className="profilepage">
       <section className="navbar">
-        <Nav />
+      <Nav />
          
       </section>
       <Profile />

@@ -39,12 +39,8 @@ class SignUp extends Component {
         </section>
 
         <div className="signup-left">
-          <div className="artingmessage">
-            <h1>arting</h1>
-            <h2>[ ar-ting ]</h2>
-            <h3><em>verb</em></h3>
-            <h3>1. the action of doing art</h3>
-            <h3><em>i am arting right now.</em></h3>
+          <div className="signupmessage">
+            <h1>let's start creating! 😊</h1>
           </div>
         </div>
 

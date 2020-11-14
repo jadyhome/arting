@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TextInput from './TextInput'
+import TextInput from '../components/TextInput'
 import '../styles/SignInUp.css'
 import Nav from '../components/Nav'
 import { __UserSignIn } from '../services/UserService'
@@ -42,7 +42,9 @@ class SignIn extends Component {
         </section>
 
         <div className="signin-left">
-          <h2 className="welcomeback">welcome back!</h2>
+          <div className="welcomeback">
+            <h1>welcome back! 👋</h1>
+            </div>
         </div>
         
         <div className="signin">

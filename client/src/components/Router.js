@@ -28,18 +28,20 @@ class Router extends Component {
     this.setState({ pageLoading: false })
   }
 
-  verifyTokenValid = async () => {
+  async verifyTokenValid() {
     const token = localStorage.getItem('token')
     if (token) {
       try {
         const session = await __CheckSession()
+        console.log('hello', session)
         this.setState(
-          { currentUser: session.user,
+          { currentUser: session,
             authenticated: true
           },
           () => this.props.history.push('/profile')
         )
       } catch (error) {
+        console.log('hello', this.state)
         this.setState({ currentUser: null, authenticated: false })
         localStorage.clear()
       }
@@ -48,6 +50,7 @@ class Router extends Component {
 
   toggleAuthenticated = (value, user, done) => {
     this.setState({ authenticated: value, currentUser: user}, () => done())
+    console.log('the state:', this.state)
   }
 
   render() {
@@ -64,25 +67,25 @@ class Router extends Component {
               />
               <Route path="/signup"
                 component={(props) => (
-                <SignUpPage>
-                  {/* <SignUp {...props} /> */}
-                </SignUpPage>
+                // <SignUpPage>
+                <SignUp {...props} />
+                // </SignUpPage>
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
-                  <SignInPage>
+                  // <SignInPage>
                     <SignIn 
                     toggleAuthenticated={this.toggleAuthenticated}
                     {...props} />
-                  </SignInPage>
+                  // </SignInPage>
                 )}
               />
               <Route path="/portfolio"
                 component={(props) => (
-                  <PortfolioPage>
+                  // <PortfolioPage>
                     <Portfolio {...props} />
-                  </PortfolioPage>
+                  // </PortfolioPage>
                 )}
               />
               <ProtectedRoute 

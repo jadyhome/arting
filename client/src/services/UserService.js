@@ -18,9 +18,19 @@ export const __UserSignUp = async (formData) => {
   }
 }
 
+export const __CheckSession = async () => {
+  try {
+    const response = await ApiClient.get('/users/refresh/session')
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const __UserSignIn = async (userData) => {
   try {
     const response = await ApiClient.post('/users/signin', userData)
+    localStorage.setItem('token', response.data.token)
     return response.data
   } catch (error) {
       throw error

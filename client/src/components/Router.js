@@ -67,25 +67,19 @@ class Router extends Component {
               />
               <Route path="/signup"
                 component={(props) => (
-                // <SignUpPage>
                 <SignUp {...props} />
-                // </SignUpPage>
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
-                  // <SignInPage>
                     <SignIn 
                     toggleAuthenticated={this.toggleAuthenticated}
                     {...props} />
-                  // </SignInPage>
                 )}
               />
               <Route path="/portfolio"
                 component={(props) => (
-                  // <PortfolioPage>
                     <Portfolio {...props} />
-                  // </PortfolioPage>
                 )}
               />
               <ProtectedRoute 

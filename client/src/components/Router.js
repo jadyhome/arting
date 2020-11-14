@@ -4,9 +4,11 @@ import MainPage from '../pages/MainPage'
 import SignInPage from '../pages/SignInPage'
 import SignUpPage from '../pages/SignUpPage'
 import PortfolioPage from '../pages/PortfolioPage'
+import ProfilePage from '../pages/ProfilePage'
 import SignUp from '../components/SignUp'
 import SignIn from '../components/SignIn'
-import Portfolio from './Portfolio'
+import Portfolio from '../components/Portfolio'
+import Profile from '../components/Profile'
 
 class Router extends Component {
   constructor() {
@@ -46,11 +48,18 @@ class Router extends Component {
                   </SignInPage>
                 )}
               />
-              <Route path="/portfolios"
+              <Route path="/portfolio"
                 component={(props) => (
                   <PortfolioPage>
                     <Portfolio {...props} />
                   </PortfolioPage>
+                )}
+              />
+              <Route path="/profile"
+                component={(props) => (
+                  <ProfilePage>
+                    <Profile {...props} />
+                  </ProfilePage>
                 )}
               />
             </Switch>

@@ -50,13 +50,6 @@ class SignUp extends Component {
             onChange={this.handleChange}
           />
           <TextInput 
-            type="text"
-            name="username"
-            placeholder="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <TextInput 
             type="password"
             name="password"
             placeholder="password"

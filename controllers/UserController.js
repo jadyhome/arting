@@ -21,7 +21,6 @@ const UserSignUp = async (request, response) => {
     const password_digest = await generatePassword(body.password)
     const user = new User({
         name: body.name,
-        user_name: body.user_name,
         email: body.email,
         password_digest
     })

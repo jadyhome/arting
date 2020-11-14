@@ -2,9 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: papayawhip;
-    height: 100%;
-    width: 100px; */
 }
 
 .signin-page, .signup-page {
@@ -138,11 +135,19 @@ button {
 }
 
 .welcomeback {
-    font-size: 40px;
+    font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #fff;
-    margin-top: 9em;
+    margin-top: 12em;
+}
+
+.signupmessage {
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #fff;
+    margin-top: 12em;
 }
 
 .artingmessage {

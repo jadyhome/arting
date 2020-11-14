@@ -5,9 +5,6 @@ import '../styles/MainPage.css'
 const MainPage = ({ children }) => {
   return (
     <div className="mainpage">
-      <section className="arting-logo">
-          <h1>arting</h1>
-      </section>
 
       <section className="navbar">
           <Nav />

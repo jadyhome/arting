@@ -20,10 +20,11 @@ class SignIn extends Component {
     })
   }
 
-  handleSubmit = async (error) => {
-    error.preventDefault()
+  handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       const login = await __UserSignIn(this.state)
+      console.log('hello', login)
       this.props.toggleAuthenticated(true, login.user, () =>
       this.props.history.push('/profile'))
     } catch (error) {

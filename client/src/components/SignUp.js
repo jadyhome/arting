@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __UserSignUp } from '../services/UserService'
+import Nav from '../components/Nav'
 import '../styles/SignInUp.css'
 
 class SignUp extends Component {
@@ -32,32 +33,48 @@ class SignUp extends Component {
   render() {
     const { name, email, password } = this.state
     return (
-      <div className="signup">
-        <form className="form" onSubmit={this.handleSubmit}>
-          <h1 className="createacc">create an account</h1>
-          <TextInput 
-            type="text"
-            name="name"
-            placeholder="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <TextInput 
-            type="email"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <TextInput 
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <button>Sign Up</button>
-        </form>
+      <div className="signup-page">
+        <section className="navbar">
+          <Nav />
+        </section>
+
+        <div className="signup-left">
+          <div className="artingmessage">
+            <h1>arting</h1>
+            <h2>[ ar-ting ]</h2>
+            <h3><em>verb</em></h3>
+            <h3>1. the action of doing art</h3>
+            <h3><em>i am arting right now.</em></h3>
+          </div>
+        </div>
+
+        <div className="signup">
+          <form className="form" onSubmit={this.handleSubmit}>
+            <h1 className="createacc">create an account</h1>
+            <TextInput
+              type="text"
+              name="name"
+              placeholder="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <TextInput
+              type="email"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            <TextInput
+              type="password"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            <button>Sign Up</button>
+          </form>
+        </div>
       </div>
     )
   }

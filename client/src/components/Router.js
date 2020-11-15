@@ -5,6 +5,7 @@ import SignUp from '../pages/SignUp'
 import SignIn from '../pages/SignIn'
 import Profile from '../pages/Profile'
 import Portfolio from '../components/Portfolio'
+import Create from '../components/Create'
 import ProtectedRoute from './ProtectedRoute'
 import SignedInLayout from './SignedInLayout'
 import { __CheckSession } from '../services/UserService'
@@ -50,6 +51,7 @@ class Router extends Component {
   }
 
   render() {
+    console.log(this.state.currentUser)
     return (
       <main>
           {this.state.pageLoading ? (
@@ -87,7 +89,22 @@ class Router extends Component {
                   authenticated={this.state.authenticated}
                   >
                     <Profile {...props} 
-                    currentUser={this.state.currentUser} />
+                    currentUser={this.state.currentUser.user} />
+                  </SignedInLayout>
+                )}
+              />
+              <ProtectedRoute 
+                authenticated={this.state.authenticated}
+                path="/create"
+                component={(props) => (
+                  <SignedInLayout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                  >
+                    
+                    <Create {...props} 
+                    
+                    currentUser={this.state.currentUser.user} />
                   </SignedInLayout>
                 )}
               />

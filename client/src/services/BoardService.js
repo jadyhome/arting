@@ -11,7 +11,16 @@ export const __CreateBoard = async(formData, userId) => {
 
 export const __GetArtBoards = async (page, limit) => {
   try {
-    const response = await ApiClient.get(`/artboards?page=${page || 1}&limit=${limit || 8}`)
+    const response = await ApiClient.get(`/artboards?page=${page || 1}&limit=${limit || 12}`)
+    return response.data
+  } catch (error) {
+      throw error
+  }
+}
+
+export const __GetArtBoard = async (boardId) => {
+  try {
+    const response = await ApiClient.get(`/artboards/${boardId}`)
     return response.data
   } catch (error) {
       throw error

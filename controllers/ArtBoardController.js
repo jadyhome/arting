@@ -10,6 +10,29 @@ const GetBoards = async (request, response) => {
   }
 }
 
+const GetBoardById = async (request, response) => {
+  try {
+    const board = await ArtBoard.findById(request.params.board_id).populate([
+      {
+        model:'users',
+        path: 'user_id',
+        select: '_id name'
+      },
+      {
+        path: 'comments',
+        populate: {
+          model: 'users',
+          path: 'user_id',
+          select: '_id name'
+        }
+      }
+    ])
+    response.send(board)
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateBoard = async (request, response) => {
   try {
     const newBoard = new ArtBoard({
@@ -48,6 +71,7 @@ const DeleteBoard = async (request, response) => {
 
 module.exports = {
     GetBoards,
+    GetBoardById,
     CreateBoard,
     UpdateBoard,
     DeleteBoard

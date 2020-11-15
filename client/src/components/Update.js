@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-import { __GetArtBoards, __UpdateBoard } from '../services/BoardService'
+import { __GetArtBoard, __UpdateBoard } from '../services/BoardService'
 
 class Update extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class Update extends Component {
 
   getBoards = async () => {
     try {
-      const board = await __GetArtBoards(this.props.match.params.board_id)
+      const board = await __GetArtBoard(this.props.match.params.board_id)
       this.setState({
         title: board.title,
         image_url: board.image_url
@@ -31,8 +31,8 @@ class Update extends Component {
     this.setState({ [target.name]: target.value })
   }
 
-  handleSubmit = async (error) => {
-    error.preventDefault()
+  handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       await __UpdateBoard(this.state, this.props.match.params.board_id)
       this.props.history.push('/profile')

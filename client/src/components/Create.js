@@ -15,9 +15,10 @@ class Create extends Component {
     this.setState({ [target.name]: target.value })
   }
 
-  handleSubmit = async (error) => {
-    error.preventDefault()
+  handleSubmit = async (e) => {
+    e.preventDefault()
     try {
+      console.log(this.props.currentUser._id)
       await __CreateBoard(this.state, this.props.currentUser._id)
       this.props.history.push('/profile')
     } catch (error) {

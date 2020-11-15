@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
+import '../styles/Navbar.css'
 import '../styles/SignInUp.css'
 import Nav from '../components/Nav'
 import { __UserSignIn } from '../services/UserService'

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __UserSignUp } from '../services/UserService'
 import Nav from '../components/Nav'
+import '../styles/Navbar.css'
 import '../styles/SignInUp.css'
 
 class SignUp extends Component {

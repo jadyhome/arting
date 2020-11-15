@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Board from '../components/Board'
 import { __GetProfile } from '../services/UserService'
 import { __DeleteBoard } from '../services/BoardService'
+import '../styles/Navbar.css'
 import '../styles/Board.css'
 import '../styles/ProfilePage.css'
 
@@ -45,43 +46,46 @@ class Profile extends Component {
     return (
       <div className="profilepage">
         
-        <div className="profile">
-          <div className="profile-icon">
+        {/* <div className="profile"> */}
+          {/* <div className="profile-icon">
             a box here
           </div>
           <h3>
             name
-            </h3>
-          <div className="create">
+            </h3> */}
+          {/* <div className="create-link">
+            <Link to="/create">create</Link>
+          </div> */}
+        {/* </div> */}
+        <div className="create-link">
             <Link to="/create">create</Link>
           </div>
-        </div>
- 
         <div className="artboards">
         
         <div className="boardcontainer">
           
           {this.state.boards.length ? (
-            <div className="board-content wrapper flex-row">
+            <div className="board-content">
               {this.state.boards.map((board) => (
                 <div key={board._id}>
-                  <Board
-                    onClick={() =>
-                      this.props.history.push(`/artboards/${board._id}`)
-                    }
-                  >
-                      <div className="board-content">
-                        <h3>{board.title}</h3>
-                        
-                      </div>
+                  <Board onClick={() =>
+                    this.props.history.push(`/artboards/${board._id}`)
+                  }>
+                  {/* <Board> */}
+                    <div className="board-title">
+                      <h3>{board.title}</h3>    
+                    </div>
                     
                     <img src={board.image_url} alt="artboards" />
+                    <p>likes {board.likes}</p>
+                    <p>views {board.views}</p>
+                    <p>comments {board.comments.length}</p>
                   </Board>
 
-                  {/* <div className="flex-row button-wrapper">
+                  <div className="flex-row button-wrapper">
                     <button
                       onClick={() =>
-                        this.props.history.push(`/edit/${board._id}`)
+                        this.props.history.push(`/update/${board._id}`)
                       }
                     >
                       Edit
@@ -89,7 +93,7 @@ class Profile extends Component {
                     <button onClick={() => this.deleteBoard(board._id)}>
                       Delete
                     </button>
-                  </div> */}
+                  </div>
                 </div>
               ))}
             </div>

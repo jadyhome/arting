@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../components/Nav'
+import '../styles/Navbar.css'
 import '../styles/MainPage.css'
 
 const MainPage = ({ children }) => {

@@ -6,6 +6,8 @@ import SignIn from '../pages/SignIn'
 import Profile from '../pages/Profile'
 import Portfolio from '../components/Portfolio'
 import Create from '../components/Create'
+import Update from '../components/Update'
+import ViewBoard from '../components/ViewBoard'
 import ProtectedRoute from './ProtectedRoute'
 import SignedInLayout from './SignedInLayout'
 import { __CheckSession } from '../services/UserService'
@@ -80,6 +82,17 @@ class Router extends Component {
                     <Portfolio {...props} />
                 )}
               />
+              <Route
+              path="/artboards/:board_id"
+              component={(props) => (
+                <SignedInLayout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <ViewBoard {...props} />
+                </SignedInLayout>
+              )}
+            />
               <ProtectedRoute 
                 authenticated={this.state.authenticated}
                 path="/profile"
@@ -101,9 +114,20 @@ class Router extends Component {
                   currentUser={this.state.currentUser}
                   authenticated={this.state.authenticated}
                   >
-                    
                     <Create {...props} 
-                    
+                    currentUser={this.state.currentUser.user} />
+                  </SignedInLayout>
+                )}
+              />
+              <ProtectedRoute 
+                authenticated={this.state.authenticated}
+                path="/update/:board_id"
+                component={(props) => (
+                  <SignedInLayout
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                  >
+                    <Update {...props} 
                     currentUser={this.state.currentUser.user} />
                   </SignedInLayout>
                 )}

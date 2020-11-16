@@ -69,7 +69,7 @@ class SignUp extends Component {
               value={password}
               onChange={this.handleChange}
             />
-            <button>Sign Up</button>
+            <button className="signup-button">Sign Up</button>
           </form>
         </div>
       </div>

@@ -65,7 +65,7 @@ class SignIn extends Component {
               value={password}
               onChange={this.handleChange}
             />
-            <button>Sign In</button>
+            <button className="signin-button">Sign In</button>
             {this.state.formError ? <p>Sign In Error</p> : <p></p>}
           </form>
         </div>

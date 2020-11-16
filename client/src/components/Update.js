@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __GetArtBoard, __UpdateBoard } from '../services/BoardService'
+import '../styles/ProfilePage.css'
 
 class Update extends Component {
   constructor() {
@@ -58,7 +59,7 @@ class Update extends Component {
           value={image_url}
           onChange={this.handleChange}  
           />
-          <button>update</button>
+          <button className="update-button">update</button>
         </form>
       </div>
     )

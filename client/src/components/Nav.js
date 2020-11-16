@@ -6,13 +6,16 @@ export default ({ authenticated, currentUser, className }) => {
     <header className={className}>
     <nav>
       <NavLink activeClassName="title nav-active" to="/">
-        arting
+        home
+      </NavLink>
+      <NavLink activeClassName="nav-active" to="/portfolio">
+        portfolio
       </NavLink>
       <NavLink activeClassName="nav-active" to="/profile">
         profile
       </NavLink>
-      <NavLink activeClassName="nav-active" to="/portfolio">
-        portfolio
+      <NavLink activeClassName="nav-active" to="/create">
+        create
       </NavLink>
       <NavLink activeClassName="nav-active" to="/"
       onClick={() => localStorage.clear()}
@@ -25,7 +28,7 @@ export default ({ authenticated, currentUser, className }) => {
     <header className={className}>
       <nav>
       <NavLink activeClassName="title nav-active" to="/">
-        arting
+        home
       </NavLink>
       <NavLink activeClassName="nav-active" to="/portfolio">
         portfolio

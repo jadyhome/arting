@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Board from '../components/Board'
 import { __GetProfile } from '../services/UserService'
 import { __DeleteBoard } from '../services/BoardService'
@@ -42,28 +41,11 @@ class Profile extends Component {
   }
 
   render() {
-    // const { name } = this.state
     return (
       <div className="profilepage">
-        
-        {/* <div className="profile"> */}
-          {/* <div className="profile-icon">
-            a box here
-          </div>
-          <h3>
-            name
-            </h3> */}
-          {/* <div className="create-link">
-            <Link to="/create">create</Link>
-          </div> */}
-        {/* </div> */}
-        <div className="create-link">
-            <Link to="/create">create</Link>
-          </div>
         <div className="artboards">
         
         <div className="boardcontainer">
-          
           {this.state.boards.length ? (
             <div className="board-content">
               {this.state.boards.map((board) => (
@@ -71,27 +53,23 @@ class Profile extends Component {
                   <Board onClick={() =>
                     this.props.history.push(`/artboards/${board._id}`)
                   }>
-                  {/* <Board> */}
-                    <div className="board-title">
-                      <h3>{board.title}</h3>    
-                    </div>
-                    
                     <img src={board.image_url} alt="artboards" />
-                    <p>likes {board.likes}</p>
-                    <p>views {board.views}</p>
-                    <p>comments {board.comments.length}</p>
+                    <div className="board-title">
+                      <h4>{board.title}</h4>    
+                    </div>
+                    <p>♥ {board.likes}</p>
+                    <p>👀 {board.views}</p>
+                    <p>comments {board.comments}</p>
                   </Board>
 
-                  <div className="flex-row button-wrapper">
-                    <button
-                      onClick={() =>
-                        this.props.history.push(`/update/${board._id}`)
-                      }
-                    >
-                      Edit
+                  <div className="buttons">
+                    <button className="edit-delete-button"
+                    onClick={() => this.props.history.push(`/update/${board._id}`)}>
+                      edit
                     </button>
-                    <button onClick={() => this.deleteBoard(board._id)}>
-                      Delete
+                    <button className="edit-delete-button"
+                    onClick={() => this.deleteBoard(board._id)}>
+                      delete
                     </button>
                   </div>
                 </div>

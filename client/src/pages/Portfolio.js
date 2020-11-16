@@ -34,8 +34,8 @@ class Portfolio extends Component {
           <Nav />
         </section>
         
-        <div className="portfolios">
-          <h3>works</h3>
+        <div className="portfolio-container">
+          <h3>portfolio works</h3>
           <section className="all-content">
             {boards.length ? (
               boards.map((board) => (
@@ -48,7 +48,7 @@ class Portfolio extends Component {
                   </div>
                   <p>♥ {board.likes}</p>
                   <p>👀 {board.views}</p>
-                  <p>comments {board.comments}</p>
+                  <p>comments {board.comments.length}</p>
                 </Board>
               ))
             ) : (
@@ -58,7 +58,6 @@ class Portfolio extends Component {
         </div>
       </div>
     )
-
   }
 }
 

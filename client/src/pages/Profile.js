@@ -44,8 +44,9 @@ class Profile extends Component {
     return (
       <div className="profilepage">
         <div className="artboards">
-        
+
         <div className="boardcontainer">
+
           {this.state.boards.length ? (
             <div className="board-content">
               {this.state.boards.map((board) => (
@@ -63,11 +64,11 @@ class Profile extends Component {
                   </Board>
 
                   <div className="buttons">
-                    <button className="edit-delete-button"
+                    <button className="update-delete-button"
                     onClick={() => this.props.history.push(`/update/${board._id}`)}>
-                      edit
+                      update
                     </button>
-                    <button className="edit-delete-button"
+                    <button className="update-delete-button"
                     onClick={() => this.deleteBoard(board._id)}>
                       delete
                     </button>

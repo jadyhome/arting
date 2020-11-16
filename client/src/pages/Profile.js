@@ -59,7 +59,7 @@ class Profile extends Component {
                     </div>
                     <p>♥ {board.likes}</p>
                     <p>👀 {board.views}</p>
-                    <p>comments {board.comments}</p>
+                    <p>comments {board.comments.length}</p>
                   </Board>
 
                   <div className="buttons">
@@ -79,8 +79,6 @@ class Profile extends Component {
             <div className="span message">No ArtBoards</div>
           )}
         </div>
-
-        
       </div>
       </div>
     )

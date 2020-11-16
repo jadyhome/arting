@@ -7,23 +7,26 @@ body {
     height: 100vh;
 }
 
-.profile {
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 20px;
-}
-
 .boardcontainer {
     display: grid;
+    width: 100vw;
     justify-content: center;
     background: linear-gradient(180deg, #87adff, #fdb4b4);
+}
+
+.board-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 2em;
+    padding: 2em;
 }
 
 .create {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 12em;
+    margin: 7em;
 }
 
 .create form {

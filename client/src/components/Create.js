@@ -31,6 +31,7 @@ class Create extends Component {
     return (
       <div className="create">
         <form className="create-form" onSubmit={this.handleSubmit}>
+        <h1>upload your work!</h1>
           <TextInput
           name="title"
           placeholder="title"
@@ -43,7 +44,7 @@ class Create extends Component {
           value={image_url}
           onChange={this.handleChange}  
           />
-          <button>create</button>
+          <button className="create-button">create</button>
         </form>
       </div>
     )

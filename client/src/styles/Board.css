@@ -1,6 +1,19 @@
-.board {
+div .board {
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+img {
     width: 350px;
     height: 350px;
-    color: black;
-    background-color: lavenderblush;
+    margin: 5px;
+}
+
+.board-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 2em;
+    padding: 2em;
 }

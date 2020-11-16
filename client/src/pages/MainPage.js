@@ -16,9 +16,9 @@ const MainPage = ({ children }) => {
         <div className="artingmessage">
         <h1>arting</h1>
         <h2>[ ar-ting ]</h2>
-        <h3><em>verb</em></h3>
-        <h3>1. the action of doing art</h3>
-        <h3><em>i am arting right now.</em></h3>
+        <h2><em>verb</em></h2>
+        <h2>1. the action of doing art</h2>
+        <h2><em>i am arting right now.</em></h2>
         </div>
       </div>
     </div>

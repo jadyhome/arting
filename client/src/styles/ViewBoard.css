@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.viewboardpage {
+   padding: 20px;
+   margin: 5em;
+   background: linear-gradient(180deg, #87adff, #fdb4b4);
+}
+
+.viewboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewboard-content {
+    margin: 20px;
+    padding: 20px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}

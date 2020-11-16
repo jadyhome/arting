@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { __GetArtBoard } from '../services/BoardService'
 import '../styles/Navbar.css'
+import '../styles/ViewBoard.css'
 
 class ViewBoard extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class ViewBoard extends Component {
       const board = await __GetArtBoard(this.props.match.params.board_id)
       this.setState({ board })
     } catch (error) {
+      console.log('error', error)
       throw error
     }
   }
@@ -26,19 +28,20 @@ class ViewBoard extends Component {
   render() {
     const { board } = this.state
     return (
-      <div>
+      <div className="viewboardpage">
+      <div className="viewboard">
         <img src={board.image_url} alt="artboard" />
 
-        <div>
+        <div className="viewboard-content">
           <h2>{board.title}</h2>
-          <p>Likes {board.likes}</p>
-          <p>Views {board.views}</p>
-          <p>Comments {board.comments}</p>
+          <p>♥ {board.likes}</p>
+          <p>👀 {board.views}</p>
+          <p>comments {board.comments.length}</p>
         </div>
+      </div>
       </div>
     )
   }
 }
-
 
 export default ViewBoard

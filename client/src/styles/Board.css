@@ -9,11 +9,3 @@ img {
     height: 350px;
     margin: 5px;
 }
-
-.board-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    margin: 2em;
-    padding: 2em;
-}

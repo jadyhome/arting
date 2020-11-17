@@ -26,8 +26,6 @@ app.use('/api', AppRouter)
 app.listen(PORT, async () => {
   try {
     await connection
-    console.log('Database Connected')
-    console.log(`App listening on PORT ${PORT}.`)
   } catch (error) {
     throw new Error('Connection Error.')
   }

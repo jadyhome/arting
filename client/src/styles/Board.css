@@ -1,11 +1,21 @@
-div .board {
-    margin: 5px;
-    padding: 10px;
-    background-color: #fff;
+img {
+    width: 275px;
+    height: 275px;
+    margin: 10px;
+    object-fit: cover;
 }
 
-img {
-    width: 350px;
-    height: 350px;
-    margin: 5px;
+.board {
+    width: 295px;
+    height: 475px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+.board:hover {
+    transform: translate(2px, 2px);
+    border: 2px dashed black;
+    cursor: pointer;
 }

@@ -2,47 +2,18 @@ body {
     margin: 0;
 }
 
+.arting {
+    font-size: 50px;
+}
+
 .artingmessage {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'DM Sans', sans-serif;
     text-align: center;
-    color: #fff;
-    margin-top: 7em;
+    color: #000;
+    margin-top: 150px;
 }
 
 .mainpage {
-    display: grid;
-    grid-template-columns: 4fr;
-    grid-template-rows: 70px 2fr;
     height: 100vh;
-}
-
-.main-content {
-    background: linear-gradient(180deg, #f0eeb1, #f69898);
-    background-size: 200% 200%;
-    -webkit-animation: gradient-animation 30s ease infinite;
-    -moz-animation: gradient-animation 30s ease infinite;
-    -o-animation: gradient-animation 30s ease infinite;
-    animation: gradient-animation 30s ease infinite;
-}
-
-@-webkit-keyframes gradient-animation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes gradient-animation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-o-keyframes gradient-animation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes gradient-animation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    background-color: rgb(238, 149, 149); 
 }

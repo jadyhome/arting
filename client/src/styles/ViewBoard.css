@@ -1,18 +1,11 @@
-body {
-    margin: 0;
-    height: 100vh;
-}
-
-.viewboardpage {
-   padding: 20px;
-   margin: 5em;
-   background: linear-gradient(180deg, #87adff, #fdb4b4);
-}
-
 .viewboard {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid #000;
+    margin: 55px;
+    padding: 35px;
+    box-shadow: 12px 12px 2px 1px #89c0ff;
 }
 
 .viewboard-content {
@@ -20,6 +13,21 @@ body {
     padding: 20px;
 }
 
-h2 {
-    font-family: Arial, Helvetica, sans-serif;
+.viewImg {
+    width: 400px;
+    height: 400px;
+}
+
+h3, h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.comments {
+    display: grid;
+    margin-left: 25px;
 }

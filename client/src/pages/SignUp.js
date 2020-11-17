@@ -17,17 +17,15 @@ class SignUp extends Component {
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value })
-    console.log(this.state)
   }
 
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
       await __UserSignUp(this.state)
-      console.log(this.state)
       this.props.history.push('/signin')
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
@@ -39,13 +37,11 @@ class SignUp extends Component {
           <Nav />
         </section>
 
-        <div className="signup-left">
+        <div className="signup">
           <div className="signupmessage">
             <h1>let's start creating! 😊</h1>
           </div>
-        </div>
 
-        <div className="signup">
           <form className="form" onSubmit={this.handleSubmit}>
             <h1 className="createacc">create an account</h1>
             <TextInput

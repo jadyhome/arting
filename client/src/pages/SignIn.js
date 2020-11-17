@@ -26,9 +26,8 @@ class SignIn extends Component {
     e.preventDefault()
     try {
       const login = await __UserSignIn(this.state)
-      console.log('hello', login)
       this.props.toggleAuthenticated(true, login.user, () =>
-      this.props.history.push('/profile'))
+        this.props.history.push('/profile'))
     } catch (error) {
       this.setState({ formError: true })
     }
@@ -42,13 +41,10 @@ class SignIn extends Component {
           <Nav />
         </section>
 
-        <div className="signin-left">
-          <div className="welcomeback">
-            <h1>welcome back! 👋</h1>
-            </div>
-        </div>
-        
         <div className="signin">
+          <div className="welcomeback">
+            <h1>welcome back! <br />👋</h1>
+          </div>
           <form className="form" onSubmit={this.handleSubmit}>
             <h1 className="signingin">hello again!</h1>
             <TextInput

@@ -21,9 +21,7 @@ class Profile extends Component {
 
   getProfile = async () => {
     try {
-      console.log(this.props)
       const profile = await __GetProfile(this.props.currentUser._id)
-      console.log('profile', profile)
       this.setState({ boards: profile.board })
     } catch (error) {
       this.setState({ boardFetchError: true })
@@ -36,51 +34,46 @@ class Profile extends Component {
       this.setState({ boards: boardsToKeep })
       await __DeleteBoard(id)
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
   render() {
     return (
       <div className="profilepage">
-        <div className="artboards">
+        {this.state.boards.length ? (
+          <div className="board-content">
+            {this.state.boards.map((board) => (
+              <div className="boards"
+                key={board._id}>
 
-        <div className="boardcontainer">
-
-          {this.state.boards.length ? (
-            <div className="board-content">
-              {this.state.boards.map((board) => (
-                <div key={board._id}>
-                  <Board onClick={() =>
-                    this.props.history.push(`/artboards/${board._id}`)
-                  }>
-                    <img src={board.image_url} alt="artboards" />
-                    <div className="board-title">
-                      <h4>{board.title}</h4>    
-                    </div>
-                    <p>♥ {board.likes}</p>
-                    <p>👀 {board.views}</p>
-                    <p>comments {board.comments.length}</p>
-                  </Board>
-
-                  <div className="buttons">
-                    <button className="update-delete-button"
-                    onClick={() => this.props.history.push(`/update/${board._id}`)}>
-                      update
-                    </button>
-                    <button className="update-delete-button"
-                    onClick={() => this.deleteBoard(board._id)}>
-                      delete
-                    </button>
+                <Board onClick={() =>
+                  this.props.history.push(`/artboards/${board._id}`)}>
+                  <img src={board.image_url} alt="artboards" />
+                  <div className="board-title">
+                    <h4>{board.title}</h4>
                   </div>
+                  <p>♥ {board.likes}</p>
+                  <p>👀 {board.views}</p>
+                  <p>💬 {board.comments.length}</p>
+                </Board>
+
+                <div className="buttons">
+                  <button className="update-delete-button"
+                    onClick={() => this.props.history.push(`/update/${board._id}`)}>
+                    update
+                  </button>
+                  <button className="update-delete-button"
+                    onClick={() => this.deleteBoard(board._id)}>
+                    delete
+                  </button>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="span message">No ArtBoards</div>
+              </div>
+            ))}
+          </div>
+        ) : (
+            <div className="none">No ArtBoards At The Moment</div>
           )}
-        </div>
-      </div>
       </div>
     )
   }

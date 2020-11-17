@@ -33,27 +33,29 @@ class Portfolio extends Component {
         <section className="navbar">
           <Nav />
         </section>
-        
+
         <div className="portfolio-container">
-          <h3>portfolio works</h3>
+          <h3 className="works">portfolio works</h3>
           <section className="all-content">
             {boards.length ? (
               boards.map((board) => (
-                <Board onClick={() =>
-                  this.props.history.push(`/artboards/${board._id}`)
-                }>
-                  <img src={board.image_url} alt="artboards" />
-                  <div className="board-title">
-                    <h4>{board.title}</h4>    
-                  </div>
-                  <p>♥ {board.likes}</p>
-                  <p>👀 {board.views}</p>
-                  <p>comments {board.comments.length}</p>
-                </Board>
+                <div className="boards">
+                  <Board onClick={() =>
+                    this.props.history.push(`/artboards/${board._id}`)
+                  }>
+                    <img src={board.image_url} alt="artboards" />
+                    <div className="board-title">
+                      <h4>{board.title}</h4>
+                    </div>
+                    <p>♥ {board.likes}</p>
+                    <p>👀 {board.views}</p>
+                    <p>comments {board.comments.length}</p>
+                  </Board>
+                </div>
               ))
             ) : (
-              <h3>No ArtBoards</h3>
-            )}
+                <h3>No ArtBoards</h3>
+              )}
           </section>
         </div>
       </div>

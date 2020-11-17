@@ -18,11 +18,10 @@ class Create extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      console.log(this.props.currentUser._id)
       await __CreateBoard(this.state, this.props.currentUser._id)
       this.props.history.push('/profile')
     } catch (error) {
-        throw error
+      throw error
     }
   }
 
@@ -31,18 +30,18 @@ class Create extends Component {
     return (
       <div className="create">
         <form className="create-form" onSubmit={this.handleSubmit}>
-        <h1>upload your work!</h1>
+          <h1>upload your work!</h1>
           <TextInput
-          name="title"
-          placeholder="title"
-          value={title}
-          onChange={this.handleChange} 
+            name="title"
+            placeholder="title"
+            value={title}
+            onChange={this.handleChange}
           />
           <TextInput
-          name="image_url"
-          placeholder="image_url"
-          value={image_url}
-          onChange={this.handleChange}  
+            name="image_url"
+            placeholder="image_url"
+            value={image_url}
+            onChange={this.handleChange}
           />
           <button className="create-button">create</button>
         </form>

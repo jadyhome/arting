@@ -27,20 +27,16 @@ class Router extends Component {
     this.setState({ pageLoading: false })
   }
 
-  async verifyTokenValid() {
+  verifyTokenValid = async () => {
     const token = localStorage.getItem('token')
     if (token) {
       try {
         const session = await __CheckSession()
-        console.log('hello', session)
         this.setState(
-          { currentUser: session,
-            authenticated: true
-          },
+          { currentUser: session, authenticated: true },
           () => this.props.history.push('/profile')
         )
       } catch (error) {
-        console.log('hello', this.state)
         this.setState({ currentUser: null, authenticated: false })
         localStorage.clear()
       }
@@ -48,17 +44,19 @@ class Router extends Component {
   }
 
   toggleAuthenticated = (value, user, done) => {
-    this.setState({ authenticated: value, currentUser: user}, () => done())
-    console.log('the state:', this.state)
+    this.setState({
+      authenticated: value,
+      currentUser: user
+    },
+      () => done())
   }
 
   render() {
-    console.log(this.state.currentUser)
     return (
       <main>
-          {this.state.pageLoading ? (
-              <h3>Page Loading...</h3>
-          ) : (
+        {this.state.pageLoading ? (
+          <h3>Page Loading...</h3>
+        ) : (
             <Switch>
               <Route exact path="/"
                 component={() => (
@@ -67,68 +65,64 @@ class Router extends Component {
               />
               <Route path="/signup"
                 component={(props) => (
-                <SignUp {...props} />
+                  <SignUp {...props} />
                 )}
               />
               <Route path="/signin"
                 component={(props) => (
-                  <SignIn 
-                  toggleAuthenticated={this.toggleAuthenticated}
-                  {...props} />
+                  <SignIn
+                    toggleAuthenticated={this.toggleAuthenticated}
+                    {...props} />
                 )}
               />
               <Route path="/portfolio"
                 component={(props) => (
-                    <Portfolio {...props} />
+                  <Portfolio {...props} />
                 )}
               />
               <Route
-              path="/artboards/:board_id"
-              component={(props) => (
-                <SignedInLayout
-                  currentUser={this.state.currentUser}
-                  authenticated={this.state.authenticated}
-                >
-                  <ViewBoard {...props} />
-                </SignedInLayout>
-              )}
-            />
-              <ProtectedRoute 
+                path="/artboards/:board_id"
+                component={(props) => (
+                  <SignedInLayout
+                    currentUser={this.state.currentUser}
+                    authenticated={this.state.authenticated}>
+                    <ViewBoard {...props} />
+                  </SignedInLayout>
+                )}
+              />
+              <ProtectedRoute
                 authenticated={this.state.authenticated}
                 path="/profile"
                 component={(props) => (
                   <SignedInLayout
-                  currentUser={this.state.currentUser}
-                  authenticated={this.state.authenticated}
-                  >
-                    <Profile {...props} 
-                    currentUser={this.state.currentUser.user} />
+                    currentUser={this.state.currentUser}
+                    authenticated={this.state.authenticated}>
+                    <Profile {...props}
+                      currentUser={this.state.currentUser.user} />
                   </SignedInLayout>
                 )}
               />
-              <ProtectedRoute 
+              <ProtectedRoute
                 authenticated={this.state.authenticated}
                 path="/create"
                 component={(props) => (
                   <SignedInLayout
-                  currentUser={this.state.currentUser}
-                  authenticated={this.state.authenticated}
-                  >
-                    <Create {...props} 
-                    currentUser={this.state.currentUser.user} />
+                    currentUser={this.state.currentUser}
+                    authenticated={this.state.authenticated}>
+                    <Create {...props}
+                      currentUser={this.state.currentUser.user} />
                   </SignedInLayout>
                 )}
               />
-              <ProtectedRoute 
+              <ProtectedRoute
                 authenticated={this.state.authenticated}
                 path="/update/:board_id"
                 component={(props) => (
                   <SignedInLayout
-                  currentUser={this.state.currentUser}
-                  authenticated={this.state.authenticated}
-                  >
-                    <Update {...props} 
-                    currentUser={this.state.currentUser.user} />
+                    currentUser={this.state.currentUser}
+                    authenticated={this.state.authenticated}>
+                    <Update {...props}
+                      currentUser={this.state.currentUser.user} />
                   </SignedInLayout>
                 )}
               />

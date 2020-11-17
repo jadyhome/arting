@@ -6,10 +6,10 @@ import '../styles/ProfilePage.css'
 const SignedInLayout = ({ children, authenticated, currentUser }) => (
   <div>
     <section className="navbar">
-    <Nav 
-    authenticated={authenticated}
-    currentUser={currentUser}
-    />
+      <Nav
+        authenticated={authenticated}
+        currentUser={currentUser}
+      />
     </section>
     {children}
   </div>

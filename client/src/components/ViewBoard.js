@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { __GetArtBoard } from '../services/BoardService'
 import '../styles/Navbar.css'
 import '../styles/ViewBoard.css'
@@ -28,37 +27,41 @@ class ViewBoard extends Component {
   render() {
     const { board } = this.state
     if (this.state.board) {
-    return (
-      <div className="viewboardpage">
-        <div className="viewboard">
-          <img src={board.image_url} alt="artboard" />
+      return (
+        <div className="viewboardpage">
+          <div className="viewboard">
+            
+            <img src={board.image_url}
+              className="viewImg"
+              alt="artboard" />
 
-          <div className="viewboard-content">
-            <h2>{board.title}</h2>
-            <p>♥ {board.likes}</p>
-            <p>👀 {board.views}</p>
-            <p>comments {board.comments.length}</p>
+            <div className="viewboard-content">
+              <h4>{board.title}</h4>
+              <h4>by {board.user_id.name}</h4>
+              <p>♥ {board.likes}</p>
+              <p>👀 {board.views}</p>
+              <p>💬 {board.comments.length}</p>
+            </div>
+
+            <div className="comments">
+              {board.comments.length ? (
+                board.comments.map((comment) => (
+                  <li className="comment-item" key={comment._id}>
+                    <p>
+                      <strong>{comment.user_id.name}</strong> : {comment.comment}
+                    </p>
+                  </li>
+                ))
+              ) : (
+                  <h3>No Comments At The Moment</h3>
+                )}
+            </div>
+            
           </div>
-
-          <div className="comments">
-            {board.comments.length ? (
-              board.comments.map((comment) => (
-                <li className="comment-item" key={comment._id}>
-                  <p>
-                    <Link>{comment.user_id.name}</Link>
-                  </p>
-                  <p>{comment.comment}</p>
-                </li>
-              ))
-            ) : (
-                <h3>no comments</h3>
-          )}
         </div>
-        </div>
-      </div>
-    )
-  }
-  return <h3>Loading...</h3>
+      )
+    }
+    return <h3>Loading...</h3>
   }
 }
 

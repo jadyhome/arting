@@ -47,6 +47,7 @@ class Update extends Component {
     return (
       <div className="update">
         <form className="update-form" onSubmit={this.handleSubmit}>
+        <h1>updating...</h1>
           <TextInput
           name="title"
           placeholder="title"

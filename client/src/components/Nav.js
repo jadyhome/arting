@@ -5,7 +5,7 @@ export default ({ authenticated, currentUser, className }) => {
   return authenticated && currentUser ? (
     <header className={className}>
     <nav>
-      <NavLink activeClassName="title nav-active" to="/">
+      <NavLink activeClassName="nav-active" to="/">
         home
       </NavLink>
       <NavLink activeClassName="nav-active" to="/portfolio">
@@ -27,7 +27,7 @@ export default ({ authenticated, currentUser, className }) => {
   ) : (
     <header className={className}>
       <nav>
-      <NavLink activeClassName="title nav-active" to="/">
+      <NavLink activeClassName="nav-active" to="/">
         home
       </NavLink>
       <NavLink activeClassName="nav-active" to="/portfolio">

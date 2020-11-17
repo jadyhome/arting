@@ -14,7 +14,7 @@ const GetBoardById = async (request, response) => {
   try {
     const board = await ArtBoard.findById(request.params.board_id).populate([
       {
-        model:'users',
+        model: 'users',
         path: 'user_id',
         select: '_id name'
       },
@@ -36,8 +36,8 @@ const GetBoardById = async (request, response) => {
 const CreateBoard = async (request, response) => {
   try {
     const newBoard = new ArtBoard({
-      ...request.body, 
-      user_id: request.params.user_id 
+      ...request.body,
+      user_id: request.params.user_id
     })
     newBoard.save()
     response.send(newBoard)
@@ -49,9 +49,9 @@ const CreateBoard = async (request, response) => {
 const UpdateBoard = async (request, response) => {
   try {
     const updateBoard = await ArtBoard.findByIdAndUpdate(
-        request.params.board_id,
-        { ...request.body },
-        { new: true, useFindAndModify: false }
+      request.params.board_id,
+      { ...request.body },
+      { new: true, useFindAndModify: false }
     )
     response.send(updateBoard)
   } catch (error) {
@@ -70,9 +70,9 @@ const DeleteBoard = async (request, response) => {
 }
 
 module.exports = {
-    GetBoards,
-    GetBoardById,
-    CreateBoard,
-    UpdateBoard,
-    DeleteBoard
+  GetBoards,
+  GetBoardById,
+  CreateBoard,
+  UpdateBoard,
+  DeleteBoard
 }

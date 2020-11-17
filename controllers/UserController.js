@@ -6,8 +6,8 @@ const { checkPassword, generatePassword } = require('../middleware/PasswordHandl
 const GetProfile = async (request, response) => {
   try {
     const user = await User.findById(request.params.user_id).select('_id name')
-    const board = await Artboard.find({ 
-      user_id: request.params.user_id 
+    const board = await Artboard.find({
+      user_id: request.params.user_id
     })
     response.send({ user, board })
   } catch (error) {
@@ -20,9 +20,9 @@ const UserSignUp = async (request, response) => {
     const body = request.body
     const password_digest = await generatePassword(body.password)
     const user = new User({
-        name: body.name,
-        email: body.email,
-        password_digest
+      name: body.name,
+      email: body.email,
+      password_digest
     })
     user.save()
     response.send(user)
@@ -58,8 +58,8 @@ const RefreshSession = (request, response) => {
 }
 
 module.exports = {
-    GetProfile,
-    UserSignUp,
-    UserSignIn,
-    RefreshSession
+  GetProfile,
+  UserSignUp,
+  UserSignIn,
+  RefreshSession
 }

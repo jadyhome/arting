@@ -4,8 +4,8 @@ const Comment = require('../models/Comment')
 const NewComment = async (request, response) => {
   try {
     const newComment = await Comment({
-        ...request.body,
-        user_id: request.params.user_id
+      ...request.body,
+      user_id: request.params.user_id
     })
     newComment.save()
     await ArtBoard.update(

@@ -2,7 +2,7 @@ import ApiClient from './ApiClient'
 
 export const __CreateBoard = async (formData, userId) => {
   try {
-    const response = await ApiClient.post(`/artboards/${userId}/?active=true`, formData)
+    const response = await ApiClient.post(`/artboards/${userId}`, formData)
     return response.data
   } catch (error) {
     throw error
@@ -29,7 +29,7 @@ export const __GetArtBoard = async (boardId) => {
 
 export const __UpdateBoard = async (formData, boardId) => {
   try {
-    const response = await ApiClient.put(`/artboards/${boardId}?active=true`, formData)
+    const response = await ApiClient.put(`/artboards/${boardId}`, formData)
     return response.data
   } catch (error) {
     throw error
@@ -38,7 +38,7 @@ export const __UpdateBoard = async (formData, boardId) => {
 
 export const __DeleteBoard = async (boardId) => {
   try {
-    const response = await ApiClient.delete(`/artboards/${boardId}?active=true`)
+    const response = await ApiClient.delete(`/artboards/${boardId}`)
     return response
   } catch (error) {
     throw error

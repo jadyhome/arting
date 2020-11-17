@@ -44,6 +44,7 @@ class Router extends Component {
   }
 
   toggleAuthenticated = (value, user, done) => {
+    console.log('user', user)
     this.setState({
       authenticated: value,
       currentUser: user
@@ -98,7 +99,7 @@ class Router extends Component {
                     currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}>
                     <Profile {...props}
-                      currentUser={this.state.currentUser.user} />
+                      currentUser={this.state.currentUser} />
                   </SignedInLayout>
                 )}
               />
@@ -110,7 +111,7 @@ class Router extends Component {
                     currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}>
                     <Create {...props}
-                      currentUser={this.state.currentUser.user} />
+                      currentUser={this.state.currentUser} />
                   </SignedInLayout>
                 )}
               />
@@ -122,7 +123,7 @@ class Router extends Component {
                     currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}>
                     <Update {...props}
-                      currentUser={this.state.currentUser.user} />
+                      currentUser={this.state.currentUser} />
                   </SignedInLayout>
                 )}
               />

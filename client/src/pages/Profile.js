@@ -39,6 +39,7 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.state.boards.length)
     return (
       <div className="profilepage">
         {this.state.boards.length ? (

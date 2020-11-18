@@ -99,16 +99,23 @@ Final Mockup/Wireframe
 - [ ] Input more data using model/schema
 - [ ] Style a different User Interface
 - [ ] CSS Modal Boxes
-- [ ] Add Commenting function to frontend
+- [ ] Add Cloudinary widget
+- [ ] Add commenting function to frontend
+- [ ] Add ability to like a post
+- [ ] Add incrementing views with each click on the post
 
 ***
 
 ### Credits
 [Trello Board](trello.com)
 
-[Netlify](https://www.netlify.com/)
+[MongoDB Atlas](https://www.mongodb.com/try)
+
+[Heroku](https://www.heroku.com/)
 
 [LucidChart](https://www.lucidchart.com/)
+
+[Cloudinary](https://cloudinary.com/)
 
 [Pexels](https://www.pexels.com/)
 Photography Credits: 

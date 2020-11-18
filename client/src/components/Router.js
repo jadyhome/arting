@@ -44,7 +44,6 @@ class Router extends Component {
   }
 
   toggleAuthenticated = (value, user, done) => {
-    console.log('user', user)
     this.setState({
       authenticated: value,
       currentUser: user

@@ -26,7 +26,6 @@ class SignIn extends Component {
     e.preventDefault()
     try {
       const login = await __UserSignIn(this.state)
-      console.log('login', login)
       this.props.toggleAuthenticated(true, login.user, () =>
         this.props.history.push('/profile'))
     } catch (error) {

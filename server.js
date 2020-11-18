@@ -5,23 +5,26 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const connection = require('./db/connection')
+const path = require('path')
 
 const PORT = process.env.PORT || 3001
 const app = express()
 
 // MIDDLEWARE
 app.use(logger('dev'))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(path.join(__dirname, 'client', 'build')))
 // MIDDLEWARE
 
 app.disable('X-Powered-By')
-app.get('/', (request, response) => {
-  response.send({ Message: 'This is Home Route.' })
-})
 app.use('/api', AppRouter)
+
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+)
 
 app.listen(PORT, async () => {
   try {

@@ -1,5 +1,5 @@
 const ArtBoard = require('../models/ArtBoard')
-const Comment = require('../models/Comment')
+// const Comment = require('../models/Comment')
 
 const GetBoards = async (request, response) => {
   try {
@@ -61,7 +61,7 @@ const UpdateBoard = async (request, response) => {
 
 const DeleteBoard = async (request, response) => {
   try {
-    await Comment.deleteMany({ _id: { $in: board.comments } })
+    // await Comment.deleteMany({ _id: { $in: board.comments } })
     await ArtBoard.findByIdAndDelete(request.params.board_id)
     response.send({ Confirmation: 'Board has been deleted.' })
   } catch (error) {

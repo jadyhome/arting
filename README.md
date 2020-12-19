@@ -31,6 +31,8 @@ Arting is a website platform for users to showcase and post any of their portfol
 
 ### Getting Started
 
+Check out my deployed website here: [arting](https://arting.herokuapp.com/)
+
 Get started by signing up! You can then begin uploading into your profile and showcase your works in the portfolio page!
 
 Here is [My Trello Board](https://trello.com/b/snLYqikj) - where I kept track of the process of creating this website.
